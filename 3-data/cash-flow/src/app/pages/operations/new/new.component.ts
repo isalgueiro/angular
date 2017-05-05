@@ -7,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
     <p>
       new Works!
     </p>
-    <form>
-      <input  [(ngModel)]="operation.amount" type="number"/>
+    <form class="container">
+      <label for="amount">Name</label>
+      <input  name="amount" [(ngModel)]="operation.amount" type="number"/>
       <button (click)="saveOperation()">Save</button>
     </form>
   `,
@@ -25,7 +26,7 @@ export class NewComponent implements OnInit {
   }
 
   saveOperation() {
-    this.data.operations.push(this.operation);
+    this.data.saveOperation(this.operation);
   }
 
 }

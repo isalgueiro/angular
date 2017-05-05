@@ -2,10 +2,17 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class DataService {
-  public operations: any[];
+  private operations: any[];
 
   constructor() {
     this.operations = [];
   }
 
+  getOperations() {
+    return this.operations;
+  }
+
+  saveOperation(operation) {
+    this.operations.push(operation);
+  }
 }

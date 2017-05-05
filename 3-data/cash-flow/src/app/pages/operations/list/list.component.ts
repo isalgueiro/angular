@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
     <p>
       list Works!
     </p>
-    <ul>
+    <ul class="container">
       <li *ngFor="let operation of operations">
         {{ operation | json }}
       </li>
@@ -20,7 +20,6 @@ export class ListComponent implements OnInit {
   constructor(public data: DataService) { }
 
   ngOnInit() {
-    this.operations = this.data.operations;
+    this.operations = this.data.getOperations();
   }
-
 }
