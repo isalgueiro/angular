@@ -1,10 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'cf-row',
   template: `
     <li>
-      {{ operation | json }}
+      {{ operation.amount  }} <button (click)="onDeleteClick()" >Delete</button> 
     </li>
 
   `,
@@ -13,10 +13,15 @@ import { Component, OnInit, Input } from '@angular/core';
 export class RowComponent implements OnInit {
 
   @Input() public operation: any;
+  @Output() public delete: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onDeleteClick() {
+    this.delete.emit();
   }
 
 }

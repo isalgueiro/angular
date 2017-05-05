@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
       new Works!
     </p>
     <form class="container">
-      <label for="amount">Name</label>
+      <label for="amount">Amount</label>
       <input  name="amount" [(ngModel)]="operation.amount" type="number"/>
       <button (click)="saveOperation()">Save</button>
     </form>

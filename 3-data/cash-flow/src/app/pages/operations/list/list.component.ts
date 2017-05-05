@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
       list Works!
     </p>
     <ul class="container">
-      <cf-row *ngFor="let operation of operations" [operation]="operation">
+      <cf-row *ngFor="let operation of operations" [operation]="operation" (delete)="onDelete(operation)">
       </cf-row>
     </ul>
   `,
@@ -19,6 +19,11 @@ export class ListComponent implements OnInit {
   constructor(public data: DataService) { }
 
   ngOnInit() {
+    this.operations = this.data.getOperations();
+  }
+
+  onDelete(operation) {
+    this.data.deleteOperation(operation);
     this.operations = this.data.getOperations();
   }
 }
