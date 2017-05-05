@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cf-shell',
+  selector: 'cf-main-content',
   template: `
-    <cf-top-bar></cf-top-bar>
-    <cf-main-content></cf-main-content>
+    <p>
+      main-content Works!
+    </p>
   `,
   styles: []
 })
-export class ShellComponent implements OnInit {
+export class MainContentComponent implements OnInit {
 
   constructor() { }
 
