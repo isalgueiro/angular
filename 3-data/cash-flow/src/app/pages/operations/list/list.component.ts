@@ -8,9 +8,8 @@ import { Component, OnInit } from '@angular/core';
       list Works!
     </p>
     <ul class="container">
-      <li *ngFor="let operation of operations">
-        {{ operation | json }}
-      </li>
+      <cf-row *ngFor="let operation of operations" [operation]="operation">
+      </cf-row>
     </ul>
   `,
   styles: []

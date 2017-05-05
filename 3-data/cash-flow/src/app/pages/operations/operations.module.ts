@@ -6,6 +6,7 @@ import { OperationsRoutingModule } from './operations-routing.module';
 import { OperationsComponent } from './operations.component';
 import { NewComponent } from './new/new.component';
 import { ListComponent } from './list/list.component';
+import { RowComponent } from './list/row/row.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import { ListComponent } from './list/list.component';
     FormsModule,
     OperationsRoutingModule
   ],
-  declarations: [OperationsComponent, NewComponent, ListComponent],
+  declarations: [OperationsComponent, NewComponent, ListComponent, RowComponent],
   providers: [DataService]
 })
 export class OperationsModule { }
