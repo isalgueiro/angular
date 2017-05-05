@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
     <p>
       list Works!
     </p>
+    <ul>
+      <li *ngFor="let operation of operations">
+        {{ operation | json }}
+      </li>
+    </ul>
   `,
   styles: []
 })
