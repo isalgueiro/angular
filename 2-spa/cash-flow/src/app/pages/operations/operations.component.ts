@@ -6,6 +6,11 @@ import { Component, OnInit } from '@angular/core';
     <p>
       operations Works!
     </p>
+    <nav>
+      <a routerLink="/operations/new">->New</a>
+      <a routerLink="/operations/list">   ->List</a>
+    </nav>
+    <router-outlet></router-outlet>
   `,
   styles: []
 })
