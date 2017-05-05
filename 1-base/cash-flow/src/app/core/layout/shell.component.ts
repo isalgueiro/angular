@@ -3,9 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'cf-shell',
   template: `
-    <p>
-      shell Works!
-    </p>
+    <cf-top-bar></cf-top-bar>
   `,
   styles: []
 })
