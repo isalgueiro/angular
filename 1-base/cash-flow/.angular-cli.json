@@ -19,6 +19,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "cf",
       "styles": [
+        "../node_modules/milligram/dist/milligram.min.css",
         "styles.css"
       ],
       "scripts": [],
