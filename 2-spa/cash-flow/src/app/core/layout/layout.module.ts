@@ -1,3 +1,4 @@
+import { AboutModule } from './../../pages/about/about.module';
 import { HomeModule } from './../../pages/home/home.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -9,6 +10,7 @@ import { MainContentComponent } from './main-content/main-content.component';
 
 @NgModule({
   imports: [
+    AboutModule,
     CommonModule,
     HomeModule,
     LayoutRoutingModule
