@@ -1,3 +1,4 @@
+import { DataService } from './../data.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,10 +11,14 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class NewComponent implements OnInit {
-
-  constructor() { }
+  public operation: any;
+  constructor(public data: DataService) { }
 
   ngOnInit() {
+  }
+
+  saveOperation() {
+    this.data.operations.push(this.operation);
   }
 
 }
