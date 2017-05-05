@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
     <p>
       main-content Works!
     </p>
+    <router-outlet></router-outlet>
   `,
   styles: []
 })
