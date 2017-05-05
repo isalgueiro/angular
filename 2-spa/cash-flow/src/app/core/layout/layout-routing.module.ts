@@ -6,6 +6,10 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent
+  },
+  {
+    path: 'operations',
+    loadChildren: './../../pages/operations/operations.module#OperationsModule'
   }
 ];
 
