@@ -4,9 +4,9 @@ import { Component, OnInit } from '@angular/core';
   selector: 'cf-top-bar',
   template: `
     <nav>
-      <a href="/">->Home</a>
-      <a href="/operations">   ->Operations</a>
-      <a href="/about">   ->About</a>
+      <a routerLink="/">->Home</a>
+      <a routerLink="/operations">   ->Operations</a>
+      <a routerLink="/about">   ->About</a>
     </nav>
   `,
   styles: []
