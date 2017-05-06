@@ -1,5 +1,5 @@
+import { OperationsService } from './data/operations.service';
 import { FormsModule } from '@angular/forms';
-import { DataService } from './data.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OperationsRoutingModule } from './operations-routing.module';
@@ -15,6 +15,6 @@ import { RowComponent } from './list/row/row.component';
     OperationsRoutingModule
   ],
   declarations: [OperationsComponent, NewComponent, ListComponent, RowComponent],
-  providers: [DataService]
+  providers: [OperationsService]
 })
 export class OperationsModule { }

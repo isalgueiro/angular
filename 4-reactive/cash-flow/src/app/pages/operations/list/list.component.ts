@@ -1,4 +1,5 @@
-import { DataService } from './../data.service';
+import { Operation } from './../data/operation.model';
+import { OperationsService } from './../data/operations.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -15,15 +16,19 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class ListComponent implements OnInit {
-  public operations;
-  constructor(public data: DataService) { }
+  public operations: Operation[];
+  constructor(public operationsService: OperationsService) { }
 
   ngOnInit() {
-    this.operations = this.data.getOperations();
+    this.getOperationList();
+  }
+
+  getOperationList() {
+    this.operations = this.operationsService.getOperations();
   }
 
   onDelete(operation) {
-    this.data.deleteOperation(operation);
-    this.operations = this.data.getOperations();
+    this.operationsService.deleteOperation(operation);
+    this.getOperationList();
   }
 }
