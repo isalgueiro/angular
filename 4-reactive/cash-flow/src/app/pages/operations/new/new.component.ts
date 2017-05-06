@@ -4,16 +4,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'cf-new',
-  template: `
-    <p>
-      new Works!
-    </p>
-    <form class="container">
-      <label for="amount">Amount</label>
-      <input  name="amount" [(ngModel)]="operation.amount" type="number"/>
-      <button (click)="saveOperation()">Save</button>
-    </form>
-  `,
+  templateUrl: './new.component.html',
   styles: []
 })
 export class NewComponent implements OnInit {
