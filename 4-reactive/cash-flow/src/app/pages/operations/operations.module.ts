@@ -1,5 +1,5 @@
 import { OperationsService } from './data/operations.service';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OperationsRoutingModule } from './operations-routing.module';
@@ -11,7 +11,7 @@ import { RowComponent } from './list/row/row.component';
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
+    ReactiveFormsModule,
     OperationsRoutingModule
   ],
   declarations: [OperationsComponent, NewComponent, ListComponent, RowComponent],
