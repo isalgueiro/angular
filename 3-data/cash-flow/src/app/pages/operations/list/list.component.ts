@@ -1,3 +1,4 @@
+import { Operation } from './../data/operation.model';
 import { OperationsService } from './../data/operations.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -15,15 +16,19 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class ListComponent implements OnInit {
-  public operations;
+  public operations: Operation[];
   constructor(public operationsService: OperationsService) { }
 
   ngOnInit() {
+    this.getOperationList();
+  }
+
+  getOperationList() {
     this.operations = this.operationsService.getOperations();
   }
 
   onDelete(operation) {
     this.operationsService.deleteOperation(operation);
-    this.operations = this.operationsService.getOperations();
+    this.getOperationList();
   }
 }

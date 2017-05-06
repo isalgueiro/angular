@@ -1,9 +1,10 @@
+import { Operation } from './operation.model';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class OperationsService {
 
-  private operations: any[];
+  private operations: Operation[];
 
   constructor() {
     this.operations = [];
@@ -13,10 +14,13 @@ export class OperationsService {
     return this.operations;
   }
 
+  newOperation() {
+    return new Operation("", new Date(), 0);
+  }
+
   saveOperation(newOperation) {
     const operation = Object.assign({}, newOperation);
-    operation.timeStamp = new Date();
-    operation.id = operation.timeStamp.getTime();
+    operation.id = new Date().getTime();
     this.operations.push(operation);
   }
 
