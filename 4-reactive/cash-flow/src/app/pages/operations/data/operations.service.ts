@@ -15,7 +15,7 @@ export class OperationsService {
   }
 
   newOperation(): Operation {
-    return new Operation(new Date(), 0, 1, "");
+    return new Operation(new Date(), 0, "", 1, "");
   }
 
   saveOperation(newOperation: Operation) {
