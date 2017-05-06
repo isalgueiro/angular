@@ -1,4 +1,4 @@
-import { DataService } from './../data.service';
+import { OperationsService } from './../data/operations.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -17,7 +17,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewComponent implements OnInit {
   public operation: any;
-  constructor(public data: DataService) { }
+  constructor(public operationsService: OperationsService) { }
 
   ngOnInit() {
     this.operation = {
@@ -26,7 +26,7 @@ export class NewComponent implements OnInit {
   }
 
   saveOperation() {
-    this.data.saveOperation(this.operation);
+    this.operationsService.saveOperation(this.operation);
   }
 
 }

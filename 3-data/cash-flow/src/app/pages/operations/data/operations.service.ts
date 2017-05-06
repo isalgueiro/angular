@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class DataService {
+export class OperationsService {
+
   private operations: any[];
 
   constructor() {
