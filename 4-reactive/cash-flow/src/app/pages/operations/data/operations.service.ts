@@ -10,21 +10,21 @@ export class OperationsService {
     this.operations = [];
   }
 
-  getOperations() {
+  getOperations(): Operation[] {
     return this.operations;
   }
 
-  newOperation() {
-    return new Operation("", new Date(), 0);
+  newOperation(): Operation {
+    return new Operation(new Date(), 0, 1, "");
   }
 
-  saveOperation(newOperation) {
+  saveOperation(newOperation: Operation) {
     const operation = Object.assign({}, newOperation);
-    operation.id = new Date().getTime();
+    operation._id = new Date().getTime().toString();
     this.operations.push(operation);
   }
 
-  deleteOperation(operation) {
+  deleteOperation(operation: Operation) {
     let index: number = this.operations.indexOf(operation);
     if (index !== -1) {
       this.operations.splice(index, 1);
