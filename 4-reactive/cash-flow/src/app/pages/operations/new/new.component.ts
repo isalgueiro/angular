@@ -75,6 +75,7 @@ export class NewComponent implements OnInit {
   }
 
   onSubmit() {
+    this.operation = this.operationForm.value;
     this.operationsService.saveOperation(this.operation);
     this.createNewOperation();
   }
