@@ -5,13 +5,17 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'cf-list',
   template: `
-    <p>
-      list Works!
-    </p>
-    <ul class="container">
-      <cf-row *ngFor="let operation of operations" [operation]="operation" (delete)="onDelete(operation)">
-      </cf-row>
-    </ul>
+    <header>
+      <h5>List of operations</h5>
+    </header>
+    <main>
+      <ul class="container">
+        <cf-row *ngFor="let operation of operations" 
+            [operation]="operation" 
+            (delete)="onDelete(operation)">
+        </cf-row>
+      </ul>
+    </main>
   `,
   styles: []
 })
