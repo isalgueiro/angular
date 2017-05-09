@@ -1,5 +1,5 @@
-import { AboutModule } from './../../pages/about/about.module';
-import { HomeModule } from './../../pages/home/home.module';
+import { AboutModule } from './../../routes/about/about.module';
+import { HomeModule } from './../../routes/home/home.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
