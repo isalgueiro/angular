@@ -3,21 +3,28 @@ import { Injectable } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
+import { Http } from "@angular/http";
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
+
 
 @Injectable()
 export class OperationsService {
-
-  private operations: Operation[];
+  private apiUrl = 'http://localhost:3030/api/pub/items';
   private operationsCount$: BehaviorSubject<number>;
+  private operationsCount = 0;
+  constructor(private http: Http) {
+    this.operationsCount$ = new BehaviorSubject(this.operationsCount);
+    this.getOperations()
+      .subscribe(operations => {
+        this.operationsCount = operations.length;
+        this.emitOperationCount();
+      });
 
-  constructor() {
-    this.operations = [];
-    this.operationsCount$ = new BehaviorSubject(0);
-    this.emitOperationCount();
   }
 
-  getOperations(): Operation[] {
-    return this.operations;
+  getOperations(): Observable<Operation[]> {
+    return this.http.get(this.apiUrl).map(r => r.json());
   }
 
   newOperation(): Operation {
@@ -25,18 +32,19 @@ export class OperationsService {
   }
 
   saveOperation(newOperation: Operation) {
-    const operation = Object.assign({}, newOperation);
-    operation._id = new Date().getTime().toString();
-    this.operations.push(operation);
-    this.emitOperationCount();
+    this.http.post(this.apiUrl, newOperation)
+      .subscribe(r => {
+        this.operationsCount++;
+        this.emitOperationCount();
+      });
   }
 
-  deleteOperation(operation: Operation) {
-    let index: number = this.operations.indexOf(operation);
-    if (index !== -1) {
-      this.operations.splice(index, 1);
-      this.emitOperationCount();
-    }
+  deleteOperation(operation: Operation): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${operation._id}`)
+      .do(r => {
+        this.operationsCount = this.operationsCount - 1;
+        this.emitOperationCount();
+      });
   }
 
   getOperationsCount$(): Observable<number> {
@@ -44,7 +52,7 @@ export class OperationsService {
   }
 
   private emitOperationCount() {
-    this.operationsCount$.next(this.operations.length);
+    this.operationsCount$.next(this.operationsCount);
   }
 
 }
