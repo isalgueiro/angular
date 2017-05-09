@@ -1,4 +1,4 @@
-import { HomeComponent } from './../../pages/home/home.component';
+import { HomeComponent } from './../../routes/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: 'operations',
-    loadChildren: './../../pages/operations/operations.module#OperationsModule'
+    loadChildren: './../../routes/operations/operations.module#OperationsModule'
   }
 ];
 
