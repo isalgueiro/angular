@@ -1,10 +1,10 @@
 ```
  npm start
 
- ng g s pages/operations/data/operations --spec false
+ ng g s routes/operations/data/operations --spec false
 
- ng g class pages/operations/data/operation.model 
+ ng g class routes/operations/data/operation.model 
 
- ng g c pages/operations/list/row
+ ng g c routes/operations/list/row
  
  ```
