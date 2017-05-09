@@ -16,5 +16,5 @@ module.exports = app => {
     movimientos(app, '/api/priv/movimientos');
     mensajes(app, '/api/priv/mensajes');
     eventos(app, '/api/priv/eventos');
-    items(app, '/api/priv/items');
+    items(app, '/api/pub/items');
 }
