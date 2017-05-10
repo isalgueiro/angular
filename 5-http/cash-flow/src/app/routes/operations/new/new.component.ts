@@ -37,18 +37,21 @@ export class NewComponent implements OnInit {
     return controls;
   }
 
-  mustShowErrors(controlName: string) {
-    let hasErrorsToShow = false;
+  mustShowErrors(controlName: string): boolean {
+    let mustShowErrors = false;
     const control = this.getControl(controlName);
-    const hasChanges = control.dirty || control.touched;
-    if (hasChanges) {
-      hasErrorsToShow = control.errors != null;
+    if (this.hasChanges(control)) {
+      mustShowErrors = control.errors != null;
     }
-    return hasErrorsToShow;
+    return mustShowErrors;
   }
 
   getControl(controlName: string): AbstractControl {
     return this.operationForm.controls[controlName];
+  }
+
+  hasChanges(control: AbstractControl): boolean {
+    return control && (control.dirty || control.touched);
   }
 
   getControlErrors(controlName: string): string {
@@ -76,8 +79,9 @@ export class NewComponent implements OnInit {
 
   onSubmit() {
     this.operation = this.operationForm.value;
-    this.operationsService.saveOperation(this.operation);
-    this.createNewOperation();
+    this.operationsService
+      .saveOperation(this.operation)
+      .subscribe(r => this.createNewOperation());
   }
 
 }

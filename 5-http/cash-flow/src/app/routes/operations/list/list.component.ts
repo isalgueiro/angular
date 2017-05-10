@@ -28,12 +28,14 @@ export class ListComponent implements OnInit {
   }
 
   getOperationList() {
-    this.operationsService.getOperations()
+    this.operationsService
+      .getOperations()
       .subscribe(operations => this.operations = operations);
   }
 
   onDelete(operation) {
-    this.operationsService.deleteOperation(operation)
+    this.operationsService
+      .deleteOperation(operation)
       .subscribe(r => this.getOperationList());
   }
 }

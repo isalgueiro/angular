@@ -27,7 +27,8 @@ export class OperationsComponent implements OnInit {
   }
 
   subscribeToOperationsCount() {
-    this.operationsService.getOperationsCount$()
+    this.operationsService
+      .getOperationsCount$()
       .subscribe(data => this.operationsCount = data)
   }
 }
