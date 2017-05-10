@@ -8,16 +8,14 @@ import { Component, OnInit } from '@angular/core';
     <p>
       list Works!
     </p>
-    <div *ngIf="operations.length == 0 ">
-      empty list 
+    <div *ngIf="operations.length == 0;else operationList ">
+      The list is empty! 
     </div>
-    <div *ngIf="operations.length > 0 "
-      [ngClass]="{'small-list':operations.length<=3, 'large-list':operations.length>3}">
-      {{ operations | json }}
-    </div>
-    <div *ngFor="let o of operations">
-      {{ o | json }}
-    </div>
+    <ng-template #operationList>
+      <span [ngClass]="{'small-list':operations.length<=3, 'large-list':operations.length>3}">
+        {{ operations | json }}
+      </span>
+    </ng-template>
     <ul class="container">
       <cf-row 
         *ngFor="let operation of operations" 

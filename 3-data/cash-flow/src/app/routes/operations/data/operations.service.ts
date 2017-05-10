@@ -15,7 +15,9 @@ export class OperationsService {
   }
 
   newOperation(): Operation {
-    return new Operation("", new Date(), 0);
+    const newOperation = new Operation("", new Date(), 0);
+    newOperation.description = 'Description not provided';
+    return newOperation;
   }
 
   saveOperation(newOperation: Operation): Operation {
