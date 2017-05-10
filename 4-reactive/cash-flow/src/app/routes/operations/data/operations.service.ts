@@ -25,10 +25,15 @@ export class OperationsService {
   }
 
   saveOperation(newOperation: Operation) {
-    const operation = Object.assign({}, newOperation);
+    const operation = this.cloneOperation(newOperation);
     operation._id = new Date().getTime().toString();
     this.operations.push(operation);
     this.emitOperationCount();
+  }
+
+  cloneOperation(originalOperation: Operation): Operation {
+    const targetOperation = Object.assign({}, originalOperation);
+    return targetOperation;
   }
 
   deleteOperation(operation: Operation) {
