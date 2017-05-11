@@ -10,7 +10,7 @@ import 'rxjs/add/operator/do';
 
 @Injectable()
 export class OperationsService {
-  private apiUrl = 'http://localhost:3030/api/pub/items';
+  private apiUrl = 'priv/movimientos';
   private operationsCount$: BehaviorSubject<number>;
   private operationsCount = 0;
 

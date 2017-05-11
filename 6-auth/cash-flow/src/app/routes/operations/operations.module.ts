@@ -19,7 +19,16 @@ import { RowComponent } from './list/row/row.component';
     ReactiveFormsModule,
     SharedModule
   ],
-  declarations: [OperationsComponent, NewComponent, ListComponent, RowComponent],
-  providers: [OperationsService, ToolsService, ValidatorsService]
+  declarations: [
+    OperationsComponent,
+    NewComponent,
+    ListComponent,
+    RowComponent
+  ],
+  providers: [
+    OperationsService,
+    ToolsService,
+    ValidatorsService
+  ]
 })
 export class OperationsModule { }
