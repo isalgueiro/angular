@@ -21,13 +21,10 @@ import { Component, OnInit } from '@angular/core';
         type="number"/>
       <button (click)="saveOperation()">Save</button>
     </form>
-<<<<<<< HEAD
     NumOps:{{operationsService.numOps}}
-=======
     <blockquote>
       <em>{{ operation | json }}</em>
     </blockquote>
->>>>>>> 8f661b061d3abefc006d33c9c96e3fbc366aa0c5
   `,
   styles: []
 })

@@ -37,6 +37,7 @@ export class OperationsService {
     let index: number = this.operations.indexOf(operation);
     if (index !== -1) {
       this.operations.splice(index, 1);
+      this.numOps--;
     }
   }
 }
