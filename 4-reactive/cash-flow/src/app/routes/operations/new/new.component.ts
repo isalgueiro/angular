@@ -36,11 +36,20 @@ export class NewComponent implements OnInit {
 
   initializeControls() {
     const controls = {
-      description: [this.operation.description, Validators.required],
-      amount: [this.operation.amount, [
-        Validators.required,
-        this.validatorsService.positiveNumber]],
-      date: [this.getDateForControl(this.operation.date), [Validators.required]],
+      description: [
+        this.operation.description,
+        Validators.required
+      ],
+      amount: [
+        this.operation.amount, [
+          Validators.required,
+          this.validatorsService.positiveNumber
+        ]
+      ],
+      date: [
+        this.getDateForControl(this.operation.date),
+        Validators.required
+      ]
     };
     return controls;
   }
@@ -74,6 +83,7 @@ export class NewComponent implements OnInit {
     return controlErrors;
   }
 
+  /*
   positiveNumber(control: AbstractControl) {
     let error = null;
     if (control.value !== undefined && (isNaN(control.value) || control.value < 0)) {
@@ -81,6 +91,7 @@ export class NewComponent implements OnInit {
     }
     return error;
   }
+*/
 
   getDateForControl(date: Date): string {
     return date.toISOString().substring(0, 10)

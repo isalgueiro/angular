@@ -12,8 +12,15 @@
       <small *ngIf="operationForm.get('description').invalid"
              class="float-right">
              Description is required
-      </small> touched:{{ operationForm.get('description').touched | json }} dirty:{{ operationForm.get('description').dirty
-      | json }} errors:{{ operationForm.get('description').errors | json }}
+      </small>
+      <dl>
+        <dt>touched</dt>
+        <dd>{{ operationForm.get('description').touched | json }}</dd>
+        <dt>dirty</dt>
+        <dd>{{ operationForm.get('description').dirty | json }}</dd>
+        <dt>errors</dt>
+        <dd>{{ operationForm.get('description').errors | json }}</dd>
+      </dl>
     </section>
     <section name="amount-control">
       <label for="amount">Amount:</label>
@@ -37,15 +44,15 @@
             [disabled]="operationForm.invalid">Save</button>
   </form>
   <aside class="container">
-    <em class="row">Value: </em>
+    <em class="row">Form Value: </em>
     <code class="row">
       <strong>{{ operationForm.value | json }}</strong>
     </code>
-    <em class="row">Oeration MODEL: </em>
+    <em class="row">Operation Model: </em>
     <code class="row">
       <strong>{{ operation | json }}</strong>
     </code>
-    <em class="row">Status: </em>
+    <em class="row">From Status: </em>
     <code class="row">
     <strong>{{ operationForm.status | json }}</strong>
   </code>
