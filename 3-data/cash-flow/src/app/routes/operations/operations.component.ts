@@ -1,3 +1,4 @@
+import { OperationsService } from './data/operations.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
         <nav>
           <a routerLink="/operations/new">->New</a>
           <a routerLink="/operations/list">   ->List</a>
+          Ops: {{ numOperaciones }}
         </nav>
       </header>
       <router-outlet></router-outlet>
@@ -17,9 +19,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OperationsComponent implements OnInit {
 
-  constructor() { }
+  public numOperaciones: number;
+  constructor(
+    public operationsService: OperationsService) { }
 
   ngOnInit() {
+    this.numOperaciones = this.operationsService.numOps;
   }
 
 }

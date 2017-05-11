@@ -13,6 +13,7 @@ import { Component, OnInit } from '@angular/core';
       <input  name="amount" [(ngModel)]="operation.amount" type="number"/>
       <button (click)="saveOperation()">Save</button>
     </form>
+    NumOps:{{operationsService.numOps}}
   `,
   styles: []
 })

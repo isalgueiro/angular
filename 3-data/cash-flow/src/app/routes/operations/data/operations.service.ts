@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 export class OperationsService {
 
   private operations: Operation[];
-
+  public numOps: number = 0;
   constructor() {
     this.operations = [];
   }
@@ -22,6 +22,7 @@ export class OperationsService {
     const operation = this.cloneOperation(newOperation);
     operation._id = new Date().getTime().toString();
     this.operations.push(operation);
+    this.numOps++;
     return operation;
   }
 
