@@ -29,13 +29,13 @@ export class ListComponent implements OnInit {
 
   getOperationList() {
     this.operationsService
-      .getOperations()
+      .getOperations$()
       .subscribe(operations => this.operations = operations);
   }
 
   onDelete(operation) {
     this.operationsService
-      .deleteOperation(operation)
+      .deleteOperation$(operation)
       .subscribe(r => this.getOperationList());
   }
 }

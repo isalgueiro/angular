@@ -1,3 +1,7 @@
+import { ValidatorsService } from './../../core/shared/forms/validators.service';
+import { Validators } from '@angular/forms';
+import { ToolsService } from './../../core/shared/forms/tools.service';
+import { SharedModule } from './../../core/shared/shared.module';
 import { OperationsService } from './data/operations.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -11,10 +15,11 @@ import { RowComponent } from './list/row/row.component';
 @NgModule({
   imports: [
     CommonModule,
+    OperationsRoutingModule,
     ReactiveFormsModule,
-    OperationsRoutingModule
+    SharedModule
   ],
   declarations: [OperationsComponent, NewComponent, ListComponent, RowComponent],
-  providers: [OperationsService]
+  providers: [OperationsService, ToolsService, ValidatorsService]
 })
 export class OperationsModule { }

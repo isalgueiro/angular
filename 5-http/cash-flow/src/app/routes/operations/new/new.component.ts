@@ -1,3 +1,5 @@
+import { ValidatorsService } from './../../../core/shared/forms/validators.service';
+import { ToolsService } from './../../../core/shared/forms/tools.service';
 import { Operation } from './../data/operation.model';
 import { OperationsService } from './../data/operations.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,7 +14,12 @@ export class NewComponent implements OnInit {
   public operation: Operation;
   public operationForm: FormGroup;
 
-  constructor(public operationsService: OperationsService, public formBuilder: FormBuilder) { }
+  constructor(
+    public formBuilder: FormBuilder,
+    public operationsService: OperationsService,
+    public toolService: ToolsService,
+    public validatorsService: ValidatorsService,
+  ) { }
 
   ngOnInit() {
     this.createNewOperation();
@@ -30,57 +37,37 @@ export class NewComponent implements OnInit {
 
   initializeControls() {
     const controls = {
-      description: [this.operation.description, Validators.required],
-      amount: [this.operation.amount, [Validators.required, this.positiveNumber]],
-      date: [this.getDateForControl(this.operation.date), [Validators.required]],
+      description: [
+        this.operation.description,
+        Validators.required
+      ],
+      amount: [
+        this.operation.amount,
+        [
+          Validators.required,
+          this.validatorsService.positiveNumber
+        ]
+      ],
+      date: [
+        this.toolService.getDateForControl(this.operation.date),
+        Validators.required
+      ],
     };
     return controls;
   }
 
   mustShowErrors(controlName: string): boolean {
-    let mustShowErrors = false;
-    const control = this.getControl(controlName);
-    if (this.hasChanges(control)) {
-      mustShowErrors = control.errors != null;
-    }
-    return mustShowErrors;
-  }
-
-  getControl(controlName: string): AbstractControl {
-    return this.operationForm.controls[controlName];
-  }
-
-  hasChanges(control: AbstractControl): boolean {
-    return control && (control.dirty || control.touched);
+    return this.toolService.mustShowErrors(this.operationForm, controlName);
   }
 
   getControlErrors(controlName: string): string {
-    let controlErrors = "";
-    const control = this.getControl(controlName);
-    if (control && control.errors) {
-      Object.keys(control.errors).forEach(error => {
-        controlErrors += error;
-      });
-    }
-    return controlErrors;
-  }
-
-  positiveNumber(control: AbstractControl) {
-    let error = null;
-    if (control.value !== undefined && (isNaN(control.value) || control.value < 0)) {
-      error = { 'positive': 'Must be a positive number' };
-    }
-    return error;
-  }
-
-  getDateForControl(date: Date): string {
-    return date.toISOString().substring(0, 10)
+    return this.toolService.getControlErrors(this.operationForm, controlName);
   }
 
   onSubmit() {
     this.operation = this.operationForm.value;
     this.operationsService
-      .saveOperation(this.operation)
+      .saveOperation$(this.operation)
       .subscribe(r => this.createNewOperation());
   }
 

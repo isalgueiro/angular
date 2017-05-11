@@ -15,15 +15,19 @@ export class OperationsService {
   private operationsCount = 0;
 
   constructor(private http: Http) {
+    this.initialize();
+  }
+
+  initialize() {
     this.operationsCount$ = new BehaviorSubject(this.operationsCount);
-    this.getOperations()
+    this.getOperations$()
       .subscribe(operations => {
         this.operationsCount = operations.length;
         this.emitOperationCount();
       });
   }
 
-  getOperations(): Observable<Operation[]> {
+  getOperations$(): Observable<Operation[]> {
     return this.http
       .get(this.apiUrl)
       .map(r => r.json());
@@ -33,7 +37,7 @@ export class OperationsService {
     return new Operation(new Date(), 0, "", 1, "");
   }
 
-  saveOperation(newOperation: Operation): Observable<any> {
+  saveOperation$(newOperation: Operation): Observable<any> {
     return this.http
       .post(this.apiUrl, newOperation)
       .do(r => {
@@ -42,7 +46,7 @@ export class OperationsService {
       });
   }
 
-  deleteOperation(operation: Operation): Observable<any> {
+  deleteOperation$(operation: Operation): Observable<any> {
     return this.http
       .delete(`${this.apiUrl}/${operation._id}`)
       .do(r => {
