@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 export class OperationsService {
 
   private operations: Operation[];
-  public numOps: number = 0;
+  public numOps = 0;
   constructor() {
     this.operations = [];
   }
@@ -15,7 +15,7 @@ export class OperationsService {
   }
 
   newOperation(): Operation {
-    const newOperation = new Operation("", new Date(), 0);
+    const newOperation = new Operation('', new Date(), 0);
     newOperation.description = 'Description not provided';
     return newOperation;
   }
@@ -34,7 +34,7 @@ export class OperationsService {
   }
 
   deleteOperation(operation: Operation) {
-    let index: number = this.operations.indexOf(operation);
+    const index: number = this.operations.indexOf(operation);
     if (index !== -1) {
       this.operations.splice(index, 1);
       this.numOps--;

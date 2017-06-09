@@ -4,7 +4,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
   selector: 'cf-row',
   template: `
     <li>
-      {{ operation.description  }} : {{ operation.amount  }} € <button (click)="onDeleteClick()" >Delete</button> 
+      {{ operation.description  }} : {{ operation.amount  }} € <button (click)="onDeleteClick()" >Delete</button>
     </li>
   `,
   styles: []
