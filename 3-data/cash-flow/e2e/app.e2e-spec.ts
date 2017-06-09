@@ -7,8 +7,8 @@ describe('cash-flow App', () => {
     page = new CashFlowPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('cf works!');
+    expect(page.getParagraphText()).toEqual('Welcome to cf!!');
   });
 });
