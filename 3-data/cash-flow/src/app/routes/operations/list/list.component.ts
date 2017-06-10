@@ -1,5 +1,5 @@
-import { Operation } from './../data/operation.model';
-import { OperationsService } from './../data/operations.service';
+import { Operation } from './../_data/operation.model';
+import { OperationsService } from './../_data/operations.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
       list Works!
     </p>
     <div *ngIf="operations.length == 0;else operationList ">
-      The list is empty! 
+      The list is empty!
     </div>
     <ng-template #operationList>
       <span [ngClass]="{'small-list':operations.length<=3, 'large-list':operations.length>3}">
@@ -17,9 +17,9 @@ import { Component, OnInit } from '@angular/core';
       </span>
     </ng-template>
     <ul class="container">
-      <cf-row 
-        *ngFor="let operation of operations" 
-        [operation]="operation" 
+      <cf-row
+        *ngFor="let operation of operations"
+        [operation]="operation"
         (delete)="onDelete(operation)">
       </cf-row>
     </ul>
