@@ -6,3 +6,4 @@ export class Operation {
     public amount?: number) {
   }
 }
+
