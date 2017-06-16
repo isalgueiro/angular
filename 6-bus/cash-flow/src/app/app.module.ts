@@ -6,8 +6,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { BusService } from "app/bus.service";
-import { Http, XHRBackend, RequestOptions } from "@angular/http";
-import { HttpService } from "app/http.service";
+import { Http, XHRBackend, RequestOptions, HttpModule } from '@angular/http';
+import { HttpService } from 'app/http.service';
 
 @NgModule({
   declarations: [

@@ -7,5 +7,5 @@ export const environment = {
   production: false,
   appName: 'cash-flow',
   appTitle: 'Cash Flow',
-  apiUrl: 'http://localhost:3000/api/',
+  apiUrl: 'http://localhost:3030/api/',
 };

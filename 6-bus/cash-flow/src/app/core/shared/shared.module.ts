@@ -6,8 +6,7 @@ import { ControlComponent } from './forms/control/control.component';
 
 @NgModule({
   imports: [
-    CommonModule,
-    HttpModule
+    CommonModule
   ],
   declarations: [
     ErrorComponent,
