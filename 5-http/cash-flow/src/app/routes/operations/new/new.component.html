@@ -36,11 +36,15 @@
             [disabled]="operationForm.invalid">Save</button>
   </form>
   <aside class="container">
-    <em class="row">Value: </em>
+    <em class="row">Form Value: </em>
     <code class="row">
       <strong>{{ operationForm.value | json }}</strong>
     </code>
-    <em class="row">Status: </em>
+    <em class="row">Operation Model: </em>
+    <code class="row">
+      <strong>{{ operation | json }}</strong>
+    </code>
+    <em class="row">From Status: </em>
     <code class="row">
     <strong>{{ operationForm.status | json }}</strong>
   </code>

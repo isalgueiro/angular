@@ -1,6 +1,6 @@
-import { Operation } from './../data/operation.model';
-import { OperationsService } from './../data/operations.service';
 import { Component, OnInit } from '@angular/core';
+import { Operation } from "app/routes/operations/_data/operation.model";
+import { OperationsService } from "app/routes/operations/_data/operations.service";
 
 @Component({
   selector: 'cf-list',
@@ -10,8 +10,8 @@ import { Component, OnInit } from '@angular/core';
     </header>
     <main>
       <ul class="container">
-        <cf-row *ngFor="let operation of operations" 
-            [operation]="operation" 
+        <cf-row *ngFor="let operation of operations"
+            [operation]="operation"
             (delete)="onDelete(operation)">
         </cf-row>
       </ul>
@@ -21,7 +21,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
   public operations: Operation[];
-  constructor(public operationsService: OperationsService) { }
+  constructor(private operationsService: OperationsService) { }
 
   ngOnInit() {
     this.getOperationList();

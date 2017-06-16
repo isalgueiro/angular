@@ -1,8 +1,9 @@
-import { ListComponent } from './list/list.component';
-import { NewComponent } from './new/new.component';
-import { OperationsComponent } from './operations.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { OperationsComponent } from 'app/routes/operations/operations.component';
+import { NewComponent } from 'app/routes/operations/new/new.component';
+import { ListComponent } from 'app/routes/operations/list/list.component';
+import { ItemComponent } from "app/routes/operations/item/item.component";
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
         component: ListComponent
       }
     ]
+  },
+  {
+    path: ':id',
+    component: ItemComponent
   }
 ];
 

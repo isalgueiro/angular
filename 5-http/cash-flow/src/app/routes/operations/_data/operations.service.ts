@@ -22,7 +22,10 @@ export class OperationsService {
     this.operationsCount$ = new BehaviorSubject(this.operationsCount);
     this.getOperations$()
       .subscribe(operations => {
-        this.operationsCount = operations.length;
+        this.operationsCount = 0;
+        if (operations) {
+          this.operationsCount = operations.length;
+        }
         this.emitOperationCount();
       });
   }
@@ -30,6 +33,12 @@ export class OperationsService {
   getOperations$(): Observable<Operation[]> {
     return this.http
       .get(this.apiUrl)
+      .map(r => r.json());
+  }
+
+  getOperationById$(id): Observable<Operation> {
+    return this.http
+      .get(`${this.apiUrl}/${id}`)
       .map(r => r.json());
   }
 
