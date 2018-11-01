@@ -40,7 +40,9 @@ import { Component, OnInit } from '@angular/core';
 export class NewComponent implements OnInit {
   public operation: Operation;
 
-  constructor(public operationsService: OperationsService) { }
+  constructor(private operationsService: OperationsService) {
+
+   }
 
   ngOnInit() {
     this.createNewOperation();
