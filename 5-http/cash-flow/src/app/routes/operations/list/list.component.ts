@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Operation } from "app/routes/operations/_data/operation.model";
-import { OperationsService } from "app/routes/operations/_data/operations.service";
+import { Operation } from 'app/routes/operations/_data/operation.model';
+import { OperationsService } from 'app/routes/operations/_data/operations.service';
 
 @Component({
   selector: 'cf-list',

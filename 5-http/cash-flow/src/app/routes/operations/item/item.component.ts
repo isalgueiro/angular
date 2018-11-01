@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
-import { OperationsService } from "app/routes/operations/_data/operations.service";
-import { Operation } from "app/routes/operations/_data/operation.model";
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { OperationsService } from 'app/routes/operations/_data/operations.service';
+import { Operation } from 'app/routes/operations/_data/operation.model';
 
 @Component({
   selector: 'cf-item',
@@ -17,6 +17,9 @@ export class ItemComponent implements OnInit {
 
   public operation: Operation;
 
+// non furrula
+  // @Input() id: string;
+
   constructor(private route: ActivatedRoute, private operationsService: OperationsService) { }
 
   ngOnInit() {
@@ -27,6 +30,8 @@ export class ItemComponent implements OnInit {
           .getOperationById$(_id)
           .subscribe(r => this.operation = r);
       });
+/*      this.operationsService.getOperationById$(this.id)
+        .subscribe(r => this.operation = r);*/
   }
 
 }

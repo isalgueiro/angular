@@ -3,9 +3,10 @@ import { Injectable } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
-import { Http } from "@angular/http";
+import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/catch';
 
 
 @Injectable()
@@ -39,11 +40,13 @@ export class OperationsService {
   getOperationById$(id): Observable<Operation> {
     return this.http
       .get(`${this.apiUrl}/${id}`)
-      .map(r => r.json());
+      .map(r => {
+        return r.json();
+      });
   }
 
   newOperation(): Operation {
-    return new Operation(new Date(), 0, "", 1, "");
+    return new Operation(new Date(), 0, '', 1, '');
   }
 
   saveOperation$(newOperation: Operation): Observable<any> {

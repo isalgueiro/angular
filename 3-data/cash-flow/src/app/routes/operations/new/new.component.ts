@@ -15,7 +15,16 @@ import { Component, OnInit } from '@angular/core';
         [value]="operation.description"
         (change)="operation.description=inputDescription.value"
         type="text"/>
+      <input name="description2"
+        [(ngModel)]="operation.description"
+        type="text"/>
       <label for="amount">Amount</label>
+      <input name="amount"
+        [(ngModel)]="operation.amount"
+        type="number"/>
+      <input name="amount"
+        [(ngModel)]="operation.amount"
+        type="number"/>
       <input name="amount"
         [(ngModel)]="operation.amount"
         type="number"/>
